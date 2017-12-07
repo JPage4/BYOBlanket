@@ -1,0 +1,27 @@
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Bring Your Own Blanket</title>
+        <!-- <link rel='stylesheet' href='./styles.css'> -->
+    </head>
+
+    <body ng-app="BYOBlanket">
+            <nav ng-controller="AuthCtrl">
+                <button ng-click="signUpUser()">Sign Up</button>
+                <button ng-click="logoutUser()">Logout</button>
+            </nav>
+            <div ng-view></div>
+        <!-- <section ng-include="'.html'"></section> -->
+
+        <footer></footer>
+
+        <script src="./lib/node_modules/angular/angular.min.js"></script>
+        <script src="./lib/node_modules/firebase/firebase.js"></script>
+        <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+        <script src="./app/app.js"></script>
+        <script src="./app/app.config.js"></script>
+
+        <script src="./app/auth/factories/AuthFactory.js"></script>
+        <script src="./app/auth/controllers/AuthCtrl.js"></script>
+    </body>
+</html>
