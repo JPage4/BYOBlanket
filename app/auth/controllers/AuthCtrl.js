@@ -22,7 +22,7 @@ angular
     $scope.logoutUser = function(){
         AuthFactory.logout()
         $location.url("/auth")
-        clearInput()
+        // clearInput()
     }
 
     clearInput = function() {

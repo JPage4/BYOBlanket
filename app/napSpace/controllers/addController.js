@@ -21,31 +21,57 @@ angular
     //     }
     // })
     $scope.addNapSpace = function () {
-        const listing = {
-            "ownerId": firebase.auth().currentUser.uid,
-            // "napSpaceID": "",
-            "title": $scope.newNapSpace.title,
-            "price": $scope.newNapSpace.price,
-            "description": $scope.newNapSpace.description,
-            "address": $scope.newNapSpace.address,
-            "payment": $scope.newNapSpace.payment,
-            "rules": $scope.newNapSpace.rules,
-            "picture": $scope.newNapSpace.picture,
-        }
-
-        /**
-         * If POST was successful, retrieve new list of napSpace
-         */
-        napSpaceFactory.add(listing)
-        .then((newListing) => {
-            console.log(newListing)
-            // return napSpaceFactory.list()
-        })
-
-        // Bind new list of napSpace to scope so view gets updated
-
-        .then(napSpace => {
-            $scope.napSpace = napSpace
+        let storageRef = firebase.storage().ref("photos/" + file.name)
+        storageRef.put(file)
+        .then(() => {
+            storageRef.getDownloadURL()
+            .then((URL) => {
+                const listing = {
+                    "ownerId": firebase.auth().currentUser.uid,
+                    // "napSpaceID": "",
+                    "title": $scope.newNapSpace.title,
+                    "price": $scope.newNapSpace.price,
+                    "description": $scope.newNapSpace.description,
+                    "address": $scope.newNapSpace.address,
+                    "payment": $scope.newNapSpace.payment,
+                    "rules": $scope.newNapSpace.rules,
+                    "picture": URL,
+                }
+                napSpaceFactory.add(listing)
+                .then((newListing) => {
+                    console.log(newListing)
+                    // return napSpaceFactory.list()
+                })
+                clearInputs()
+            })
         })
     }
+
+
+        // .then(napSpace => {
+        //     $scope.napSpace = napSpace
+        // })
+//     }
+// })
+
+clearInputs = function() {
+    $scope.newNapSpace.title = "",
+    $scope.newNapSpace.price = "",
+    $scope.newNapSpace.description = "",
+    $scope.newNapSpace.address = "",
+    $scope.newNapSpace.payment = "",
+    $scope.newNapSpace.rules = ""
+    document.getElementById("uploadFile").value = null
+}
+
+let file = ""
+let submitButton = document.getElementById("uploadFile")
+submitButton.addEventListener("change", function(event) {
+    // get files
+    file = event.target.files[0];
+    // create storage ref
+    let storageRef = firebase.storage().ref("photos/" + file.name)
+    // upload file
+    // storageref.put(file)
+    })
 })

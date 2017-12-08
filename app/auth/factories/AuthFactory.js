@@ -8,7 +8,8 @@ angular.module("BYOBlanket")
             console.log("User is authenticated")
             $timeout(function () {
                 // $location.url("")
-            }, 500);
+            }, 500)
+            $route.reload()
 
         } else {
             currentUserData = null
