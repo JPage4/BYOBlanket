@@ -1,0 +1,27 @@
+<a href="#!/napSpace/list">Back to Home</a>
+
+<h2>List a new Nap Space</h2>
+<form ng-submit="addNapSpace()">
+    <div>
+        Listing Title: <input type="text" ng-model="newNapSpace.title">
+    </div>
+    <div>
+        Price per hour: <input type="text" ng-model="newNapSpace.price">
+    </div>
+    <div>
+        Description: <input type="text" ng-model="newNapSpace.description">
+    </div>
+    <div>
+        Address: <input type="text" ng-model="newNapSpace.address">
+    </div>
+    <div>
+        Payment Types Accepted: <input type="text" ng-model="newNapSpace.payment">
+    </div>
+    <div>
+        Rules: <input type="text" ng-model="newNapSpace.rules">
+    </div>
+    <div>
+        Picture: <input type="file" ng-model="newNapSpace.picture" accept=".jpg, .jpeg, .png">
+    </div>
+    <button>Submit</button>
+</form>

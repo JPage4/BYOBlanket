@@ -7,7 +7,6 @@
 
     <body ng-app="BYOBlanket">
             <nav ng-controller="AuthCtrl">
-                <button ng-click="signUpUser()">Sign Up</button>
                 <button ng-click="logoutUser()">Logout</button>
             </nav>
             <div ng-view></div>
@@ -15,13 +14,21 @@
 
         <footer></footer>
 
-        <script src="./lib/node_modules/angular/angular.min.js"></script>
         <script src="./lib/node_modules/firebase/firebase.js"></script>
+        <script src="./lib/node_modules/angular/angular.min.js"></script>
         <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
         <script src="./app/app.js"></script>
         <script src="./app/app.config.js"></script>
 
         <script src="./app/auth/factories/AuthFactory.js"></script>
         <script src="./app/auth/controllers/AuthCtrl.js"></script>
+
+        <script src="./app/napSpace/factories/napSpaceFactory.js"></script>
+        <script src="./app/napSpace/controllers/listController.js"></script>
+        <script src="./app/napSpace/controllers/addController.js"></script>
+        <script src="./app/napSpace/controllers/detailController.js"></script>
+        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPXgyLlBAEdlcMQtaGQUPuP9VjTCLEKTQ&callback=initMap"
+        type="text/javascript"></script> -->
+
     </body>
 </html>

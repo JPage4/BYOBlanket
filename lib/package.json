@@ -12,5 +12,10 @@
     "angular": "^1.6.7",
     "angular-route": "^1.6.7",
     "firebase": "^4.7.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "gruntify-eslint": "^4.0.0",
+    "grunt-contrib-watch": "^1.0.0"
   }
 }
