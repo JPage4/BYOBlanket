@@ -21,6 +21,8 @@ angular
     //     }
     // })
     $scope.addNapSpace = function () {
+        return firebase.auth().currentUser.getIdToken(true)
+        .then(idToken => {
         let storageRef = firebase.storage().ref("photos/" + file.name)
         storageRef.put(file)
         .then(() => {
@@ -45,14 +47,8 @@ angular
                 clearInputs()
             })
         })
-    }
-
-
-        // .then(napSpace => {
-        //     $scope.napSpace = napSpace
-        // })
-//     }
-// })
+    })
+}
 
 clearInputs = function() {
     $scope.newNapSpace.title = "",
@@ -72,6 +68,5 @@ submitButton.addEventListener("change", function(event) {
     // create storage ref
     let storageRef = firebase.storage().ref("photos/" + file.name)
     // upload file
-    // storageref.put(file)
     })
 })

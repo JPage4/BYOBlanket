@@ -5,8 +5,10 @@
     <input type="text" ng-model="query" />
 </div>
 
-<div ng-repeat="listing in napSpace | filter: query">
+<div ng-repeat="napSpace in spaces | filter: query">
     <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
 </div>
 
-<!-- somehow a map goes here? -->
+<div id="map"></div>
+<!-- add link to napSpace detail page on the marker -->
+

@@ -2,21 +2,26 @@
     <head>
         <meta charset='utf-8'>
         <title>Bring Your Own Blanket</title>
-        <!-- <link rel='stylesheet' href='./styles.css'> -->
+        <link rel='stylesheet' href='./css/styles.css'>
     </head>
 
     <body ng-app="BYOBlanket">
             <nav ng-controller="AuthCtrl">
                 <button ng-click="logoutUser()">Logout</button>
             </nav>
-            <div ng-view></div>
-        <!-- <section ng-include="'.html'"></section> -->
+        <div ng-view></div>
+        <!-- <section ng-include="'./app/napSpace/partials/map.html'"></section> -->
 
         <footer></footer>
 
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXBxVun2yQNXWCrxLu_Pmi4yMpKkOcdV0">
+        </script>
         <script src="./lib/node_modules/firebase/firebase.js"></script>
         <script src="./lib/node_modules/angular/angular.min.js"></script>
         <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+
+
         <script src="./app/app.js"></script>
         <script src="./app/app.config.js"></script>
 
@@ -27,8 +32,6 @@
         <script src="./app/napSpace/controllers/listController.js"></script>
         <script src="./app/napSpace/controllers/addController.js"></script>
         <script src="./app/napSpace/controllers/detailController.js"></script>
-        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPXgyLlBAEdlcMQtaGQUPuP9VjTCLEKTQ&callback=initMap"
-        type="text/javascript"></script> -->
 
     </body>
 </html>
