@@ -72,13 +72,8 @@ angular
             },
             "geocodeAddress": {
                 value: function (address, map) {
-                    // var map = new google.maps.Map(document.getElementById("map"), {
-                    //     zoom: 12,
-                    //     center: {lat: 36.1627, lng: 86.7816}
-                    //     });
                     var geocoder = new google.maps.Geocoder();
                     var address = address;
-
 
                     geocoder.geocode({ "address": address }, function (results, status) {
                         if (status === "OK") {

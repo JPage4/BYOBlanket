@@ -14,10 +14,10 @@ angular
                 center: { lat: 36.1627, lng: 86.7816 }
             })
 
+            const geocoder = new google.maps.Geocoder();
             for (let i = 0; i < spaces.length; i++) {
                 const currentSpace = spaces[i]
                 let address = currentSpace.address;
-                const geocoder = new google.maps.Geocoder();
 
                 geocoder.geocode({ "address": address }, function (results, status) {
                     if (status === "OK") {
@@ -37,10 +37,11 @@ angular
                         // Add event listener for each marker to display the info window
                         google.maps.event.addListener(marker, "click", (function (marker) {
                             return function () {
+                                // right here is where the blank info window is attached to specific marker
                                 infoWindow.setContent(`<a href="#!/napSpace/detail/${currentSpace.id}" class="detailPage">${currentSpace.title}</a>`);
                                 infoWindow.open(map, marker);
                             }
-                        })(marker));
+                        })(marker)); /* IFFE */
 
                     } else {
                         alert("Geocode was not successful for the following reason: " + status);
