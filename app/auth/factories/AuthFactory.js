@@ -1,6 +1,7 @@
 angular.module("BYOBlanket")
 .factory("AuthFactory", function ($http, $timeout, $location , $route) {
     let currentUserData = null
+    let provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -35,11 +36,11 @@ angular.module("BYOBlanket")
         },
         authenticate: {
             value: credentials =>
-                firebase.auth()
-                        .signInWithEmailAndPassword(
-                            credentials.email,
-                            credentials.password
-                        )
+            firebase.auth()
+            .signInWithEmailAndPassword(
+                credentials.email,
+                credentials.password
+            )
         },
         registerWithEmail: {
             value: user =>
