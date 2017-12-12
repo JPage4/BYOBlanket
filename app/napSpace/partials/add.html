@@ -3,25 +3,25 @@
 <h2>List a new Nap Space</h2>
 <form ng-submit="addNapSpace()">
     <div>
-        Listing Title: <input type="text" ng-model="newNapSpace.title">
+        Listing Title: <input type="text" ng-model="newNapSpace.title" required>
     </div>
     <div>
-        Price per hour: <input type="text" ng-model="newNapSpace.price">
+        Price per hour: <input type="text" ng-model="newNapSpace.price" required>
     </div>
     <div>
-        Description: <input type="text" ng-model="newNapSpace.description">
+        Description: <input type="text" ng-model="newNapSpace.description" required>
     </div>
     <div>
-        Address: <input type="text" ng-model="newNapSpace.address">
+        Address: <input type="text" ng-model="newNapSpace.address" required>
     </div>
     <div>
-        Payment Types Accepted: <input type="text" ng-model="newNapSpace.payment">
+        Payment Types Accepted: <input type="text" ng-model="newNapSpace.payment" required>
     </div>
     <div>
-        Rules: <input type="text" ng-model="newNapSpace.rules">
+        Rules: <input type="text" ng-model="newNapSpace.rules" required>
     </div>
     <div>
-        Picture: <input id="uploadFile" type="file" ng-model="newNapSpace.picture" accept=".jpg, .jpeg, .png">
+        Picture: <input id="uploadFile" type="file" ng-model="newNapSpace.picture" accept=".jpg, .jpeg, .png" required>
     </div>
     <button>Submit</button>
 </form>

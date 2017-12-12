@@ -90,6 +90,32 @@ angular
 
 
                 }
+            },
+            "makeReservation": {
+                value: function (napSpace){
+                    return firebase.auth().currentUser.getIdToken(true)
+                    .then(idToken => {
+                        return $http({
+                            method: "PUT",
+                            url: `${firebaseURL}/spaces/.json?auth=${idToken}`,
+                            data: {
+                                "ownerId": firebase.auth().currentUser.uid,
+                                "title": napSpace.title,
+                                "price": napSpace.price,
+                                "description": napSpace.description,
+                                "address": napSpace.address,
+                                "payment": napSpace.payment,
+                                "rules": napSpace.rules,
+                                "picture": napSpace.picture,
+                                "unavailable":
+                                    {
+                                    "startDateTime": {"date": date, "time": time},
+                                    "endDateTime": {"date": date, "time": time}
+                                    }
+                            }
+                        })
+                    })
+                }
             }
         })
     })

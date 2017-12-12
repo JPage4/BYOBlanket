@@ -3,23 +3,6 @@ angular
 .controller("addController", function ($scope, napSpaceFactory) {
     $scope.newNapSpace = {}
 
-    /**
-     * Use this event listener to check if there is any data
-     * in the factory cache each time the user loads a view
-     * that is bound to this controller
-     */
-
-    // $scope.$on("$viewContentLoaded", function(event) {
-    //     if (!napSpaceFactory.cache) {
-    //         console.info("No cached data")
-    //         napSpaceFactory.list(true).then(data => {
-    //             $scope.napSpace = data
-    //         })
-    //     } else {
-    //         console.info("Using cached data")
-    //         $scope.napSpace = napSpaceFactory.cache
-    //     }
-    // })
     $scope.addNapSpace = function () {
         return firebase.auth().currentUser.getIdToken(true)
         .then(idToken => {
@@ -28,9 +11,9 @@ angular
         .then(() => {
             storageRef.getDownloadURL()
             .then((URL) => {
+
                 const listing = {
                     "ownerId": firebase.auth().currentUser.uid,
-                    // "napSpaceID": "",
                     "title": $scope.newNapSpace.title,
                     "price": $scope.newNapSpace.price,
                     "description": $scope.newNapSpace.description,
@@ -42,7 +25,6 @@ angular
                 napSpaceFactory.add(listing)
                 .then((newListing) => {
                     console.log(newListing)
-                    // return napSpaceFactory.list()
                 })
                 clearInputs()
             })

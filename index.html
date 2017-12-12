@@ -10,10 +10,11 @@
                 <button ng-click="logoutUser()">Logout</button>
             </nav>
         <div ng-view></div>
-        <!-- <section ng-include="'./app/napSpace/partials/map.html'"></section> -->
-
         <footer></footer>
 
+        <div id="bookingjs"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+        <script src="https://cdn.timekit.io/booking-js/v1/booking.min.js" defer></script> <script>window.timekitBookingConfig = {widgetId: '10f4e51a-d13f-4f31-94b2-0dc6241e6307'}</script>
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXBxVun2yQNXWCrxLu_Pmi4yMpKkOcdV0">
         </script>
@@ -32,6 +33,7 @@
         <script src="./app/napSpace/controllers/listController.js"></script>
         <script src="./app/napSpace/controllers/addController.js"></script>
         <script src="./app/napSpace/controllers/detailController.js"></script>
+        <script src="./app/napSpace/controllers/reservationController.js"></script>
 
     </body>
 </html>

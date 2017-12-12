@@ -2,6 +2,10 @@
     height: 400px;
     width: 500px;
   }
+#bookingjs {
+    height: auto;
+    width: 500px;
+  }
   /* Optional: Makes the sample page fill the window. */
   html, body {
     height: 100%;
