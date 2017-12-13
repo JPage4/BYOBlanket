@@ -49,7 +49,6 @@ angular
                                 url: `${firebaseURL}/spaces/.json?auth=${idToken}`,
                                 data: {
                                     "ownerId": firebase.auth().currentUser.uid,
-                                    // "napSpaceID": "",
                                     "title": napSpace.title,
                                     "price": napSpace.price,
                                     "description": napSpace.description,
@@ -86,34 +85,51 @@ angular
                             alert("Geocode was not successful for the following reason: " + status);
                         }
                     })
-
-
-
                 }
             },
             "makeReservation": {
-                value: function (napSpace){
+                value: function (reservation) {
                     return firebase.auth().currentUser.getIdToken(true)
-                    .then(idToken => {
-                        return $http({
-                            method: "PUT",
-                            url: `${firebaseURL}/spaces/.json?auth=${idToken}`,
-                            data: {
-                                "ownerId": firebase.auth().currentUser.uid,
-                                "title": napSpace.title,
-                                "price": napSpace.price,
-                                "description": napSpace.description,
-                                "address": napSpace.address,
-                                "payment": napSpace.payment,
-                                "rules": napSpace.rules,
-                                "picture": napSpace.picture,
-                                "unavailable":
-                                    {
-                                    "startDateTime": {"date": date, "time": time},
-                                    "endDateTime": {"date": date, "time": time}
-                                    }
-                            }
+                        .then(idToken => {
+                            return $http({
+                                method: "POST",
+                                url: `${firebaseURL}/reservations/.json?auth=${idToken}`,
+                                data: reservation
+                                // {
+                                //     "userResEmail": firebase.auth().currentUser.email,
+                                //     "napSpaceId": reservation.id,
+                                //     "napSpaceTitle": reservation.title,
+                                //     "napSpacePrice": reservation.price,
+                                //     "napSpaceAddress": reservation.address,
+                                //     "napSpacePayment": reservation.payment,
+                                //     // "reservationName": "",
+                                //     "reservationTime":
+                                //         {
+                                //         "startDateTime": {"date": date, "time": time},
+                                //         "endDateTime": {"date": date, "time": time}
+                                //         }
+                                // }
+                            })
                         })
+                }
+            },
+            "getReservation": {
+                value: function (key) {
+                    return firebase.auth().currentUser.getIdToken(true)
+                        .then(idToken => {
+                            return $http({
+                                method: "GET",
+                                url: `${firebaseURL}/reservations.json?orderBy="napSpaceID"&equalTo="${key}"&auth=${idToken}`
+                            }).then(response => {
+                                const data = response.data
+                                console.log(data)
+                                let reservations = Object.keys(data).map(key => {
+                                    data[key].id = key
+                                    return data[key]
+                                })
+                                console.log("getReservation",reservations)
+                                return reservations
+                            })
                     })
                 }
             }

@@ -1,26 +1,32 @@
-<html lang='en'>
+<html lang="en">
     <head>
-        <meta charset='utf-8'>
+        <meta charset="utf-8">
         <title>Bring Your Own Blanket</title>
-        <link rel='stylesheet' href='./css/styles.css'>
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.css" rel="stylesheet">
+
+
     </head>
 
     <body ng-app="BYOBlanket">
-            <nav ng-controller="AuthCtrl">
-                <button ng-click="logoutUser()">Logout</button>
-            </nav>
+        <nav ng-controller="AuthCtrl">
+            <button ng-click="logoutUser()">Logout</button>
+        </nav>
+        <h1>Welcome to BYOBlanket</h1>
         <div ng-view></div>
+
         <footer></footer>
-
-
-
 
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXBxVun2yQNXWCrxLu_Pmi4yMpKkOcdV0">
         </script>
         <script src="./lib/node_modules/firebase/firebase.js"></script>
         <script src="./lib/node_modules/angular/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="./lib/node_modules/angular-fullcalendar/dist/angular-fullcalendar.min.js"></script>
         <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.min.js"></script>
 
         <script src="./app/app.js"></script>
         <script src="./app/app.config.js"></script>
@@ -32,7 +38,6 @@
         <script src="./app/napSpace/controllers/listController.js"></script>
         <script src="./app/napSpace/controllers/addController.js"></script>
         <script src="./app/napSpace/controllers/detailController.js"></script>
-        <!-- <script src="./app/napSpace/controllers/reservationController.js"></script> -->
 
     </body>
 </html>

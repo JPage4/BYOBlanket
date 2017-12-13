@@ -10,9 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.7",
+    "angular-fullcalendar": "^1.0.1",
     "angular-route": "^1.6.7",
     "firebase": "^4.7.0",
     "fullcalendar": "^3.7.0",
+    "fullcalendar-scheduler": "^1.9.0",
     "jquery": "^3.2.1",
     "moment": "^2.19.4"
   },

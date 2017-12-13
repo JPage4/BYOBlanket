@@ -24,7 +24,7 @@ angular.module("BYOBlanket")
     return Object.create(null, {
         isAuthenticated: {
             value: () => {
-                const user = currentUserData
+                let user = currentUserData
                 return user ? true : false
             }
         },
@@ -49,6 +49,18 @@ angular.module("BYOBlanket")
                             user.email,
                             user.password
                         )
-        }
+        },
+        // updateUser: {
+        //     value: user =>
+        //     firebase.auth().currentUser
+        //     user.updateProfile({
+        //       displayName: "Jesse Page",
+        //     }).then(function() {
+        //       // Update successful.
+        //     }).catch(function(error) {
+        //       // An error happened.
+        //     });
+        // }
+
     })
 })

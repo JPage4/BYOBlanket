@@ -1,2 +1,2 @@
 console.log("This is fine!")
-angular.module("BYOBlanket", ["ngRoute"])
+angular.module("BYOBlanket", ["ngRoute", "angular-fullcalendar"])

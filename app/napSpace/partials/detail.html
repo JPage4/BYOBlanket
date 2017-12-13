@@ -5,15 +5,31 @@
 <h3>{{ napSpace.description }}</h3>
 <p>Accepted Payment: {{ napSpace.payment }}</p>
 <p>Nap Space Rules: {{ napSpace.rules }}</p>
-<img src="{{ napSpace.picture }}" width="300px">
-<!-- <div ng-include="'./app/napSpace/partials/map.html'"></div> -->
+<img src="{{ napSpace.picture }}" width="500px">
+
 <div id="map"></div>
 <br>
 
-<input id="date" type="date">Date
-<input id="time" type="time" ng-model="napSpace.unavailable[0]">Starting Time
-<input id="time" type="time" ng-model="napSpace.unavailable[1]">Ending Time
-<button id="reserveButton" ng-click="makeReservation()">Reserve</button>
+<div ng-controller="detailController">
+    <input id="title" type="title" ng-model="reservation.title">Title
+    <!-- <input id="date" type="date">Date -->
+    <input id="startTime" type="date" ng-model="reservation.start">Starting Time
+    <input id="colorPicker" type="color" ng-model="reservation.color">Pick a Color!
+    <!-- <input id="description" type="text" ng-model="reservation.description">Description -->
+    <!-- <input id="time" type="time" ng-model="">Ending Time -->
+    <button ng-click="makeReservation()">Make a Nap Reservation</button>
+    <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
+</div>
+<!-- <div id="page">
+    <div class="page-header">
+        <h1>Reserve Your Nap Space</h1>
+    </div>
+    <div id="calendar"></div>
+</div>
+
+<div class="bubble">
+    <div class="arrow"></div>
+</div> -->
 
 <br>
 <br>
