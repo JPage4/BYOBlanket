@@ -8,6 +8,7 @@ angular
                 value: null,
                 writable: true
             },
+            // lists all napSpaces
             "list": {
                 value: function () {
                     return firebase.auth().currentUser.getIdToken(true)
@@ -26,6 +27,7 @@ angular
                         })
                 }
             },
+            // lists specific napSpace by id to display details page
             "single": {
                 value: function (key) {
                     return firebase.auth().currentUser.getIdToken(true)
@@ -39,6 +41,7 @@ angular
                         })
                 }
             },
+            // creates new napSpace and stores in firebase
             "add": {
                 value: function (napSpace) {
                     console.log("Dis bitch was added!")
@@ -61,6 +64,7 @@ angular
                         })
                 }
             },
+            // filters napSpaces for the search
             "find": {
                 value: function (searchString) {
                     const result = this.cache.find(napSpace => {
@@ -69,6 +73,7 @@ angular
                     return result
                 }
             },
+            // converts address string into coords and adds marker
             "geocodeAddress": {
                 value: function (address, map) {
                     var geocoder = new google.maps.Geocoder();
@@ -87,6 +92,7 @@ angular
                     })
                 }
             },
+            // stores reservation object in firebase
             "makeReservation": {
                 value: function (reservation) {
                     return firebase.auth().currentUser.getIdToken(true)
@@ -113,6 +119,7 @@ angular
                         })
                 }
             },
+            // gets all the reservations under specific napSpaceID
             "getReservation": {
                 value: function (key) {
                     return firebase.auth().currentUser.getIdToken(true)

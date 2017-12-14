@@ -2,18 +2,16 @@ angular
     .module("BYOBlanket")
     .controller("listController", function (napSpaceFactory, $scope, $timeout) {
         $scope.spaces = []
-
-
-
+        // lists all the napSpaces
         napSpaceFactory.list().then(spaces => {
             $timeout()
             $scope.spaces = spaces
-
+            // creates new map
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
                 center: { lat: 36.1627, lng: 86.7816 }
             })
-
+            // loops over all the spaces and creates a new marker
             const geocoder = new google.maps.Geocoder();
             for (let i = 0; i < spaces.length; i++) {
                 const currentSpace = spaces[i]

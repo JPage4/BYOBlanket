@@ -11,25 +11,15 @@
 <br>
 
 <div ng-controller="detailController">
-    <input id="title" type="title" ng-model="reservation.title">Title
-    <!-- <input id="date" type="date">Date -->
-    <input id="startTime" type="date" ng-model="reservation.start">Starting Time
-    <input id="colorPicker" type="color" ng-model="reservation.color">Pick a Color!
-    <!-- <input id="description" type="text" ng-model="reservation.description">Description -->
-    <!-- <input id="time" type="time" ng-model="">Ending Time -->
-    <button ng-click="makeReservation()">Make a Nap Reservation</button>
+    <input id="title" type="title" ng-model="reservation.title" placeholder="Napper Name"><br>
+    <input id="startTime" type="date" ng-model="reservation.start">Start Date<br>
+    <input id="time" type="time" ng-model="reservation.start">Start Time<br>
+    <input id="startTime" type="date" ng-model="reservation.end">End Date<br>
+    <input id="endTime" type="time" ng-model="reservation.end">End Time<br>
+    <input id="colorPicker" type="color" ng-model="reservation.color">Pick a Color!<br>
+    <button ng-click="makeReservation()">Make a Nap Reservation</button><br>
     <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
 </div>
-<!-- <div id="page">
-    <div class="page-header">
-        <h1>Reserve Your Nap Space</h1>
-    </div>
-    <div id="calendar"></div>
-</div>
-
-<div class="bubble">
-    <div class="arrow"></div>
-</div> -->
 
 <br>
 <br>
