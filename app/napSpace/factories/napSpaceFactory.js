@@ -52,6 +52,7 @@ angular
                                 url: `${firebaseURL}/spaces/.json?auth=${idToken}`,
                                 data: {
                                     "ownerId": firebase.auth().currentUser.uid,
+                                    "ownerEmail": firebase.auth().currentUser.email,
                                     "title": napSpace.title,
                                     "price": napSpace.price,
                                     "description": napSpace.description,

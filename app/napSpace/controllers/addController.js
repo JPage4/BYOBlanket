@@ -16,6 +16,7 @@ angular
                 // newNapSpace object created with these properties
                 const listing = {
                     "ownerId": firebase.auth().currentUser.uid,
+                    "ownerEmail": firebase.auth().currentUser.email,
                     "title": $scope.newNapSpace.title,
                     "price": $scope.newNapSpace.price,
                     "description": $scope.newNapSpace.description,
