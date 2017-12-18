@@ -1,2 +1,50 @@
 <!-- space for owner to edit and delete napSpaces -->
+<a href="#!/napSpace/list">Back to Home</a>
 
+<h1>Manage Your Nap Spaces</h1>
+<div ng-repeat="napSpace in spaces">
+    <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
+    <button id="editButton" ng-click="editFields(napSpace)">Edit</button>
+    <button id="deleteButton" ng-click="deleteNapSpace(napSpace)">Delete</button>
+</div>
+<br>
+<br>
+<br>
+<form id="editForm" ng-submit="editNapSpace()">
+    <div>
+        Listing Title: <input type="text" ng-model="napSpace.title" required>
+    </div>
+    <div>
+        Price per hour: <input type="text" ng-model="napSpace.price" required>
+    </div>
+    <div>
+        Description: <input type="text" ng-model="napSpace.description" required>
+    </div>
+    <div>
+        Address: <input type="text" ng-model="napSpace.address" required>
+    </div>
+    <div>
+        Payment Types Accepted: <input type="text" ng-model="napSpace.payment" required>
+    </div>
+    <div>
+        Rules: <input type="text" ng-model="napSpace.rules" required>
+    </div>
+    <div>
+        Picture: <input id="uploadFile" type="file" ng-model="napSpace.picture" accept=".jpg, .jpeg, .png" required>
+    </div>
+    <h2>Set Your Availability</h2>
+
+    <div>
+        <input id="title" type="title" ng-model="reservation.title" placeholder="Unavailable"><br>
+        <input id="startDate" type="date" ng-model="reservation.start">Start Date<br>
+        <input id="startTime" type="time" ng-model="reservation.start">Start Time<br>
+        <input id="endDate" type="date" ng-model="reservation.end">End Date<br>
+        <input id="endTime" type="time" ng-model="reservation.end">End Time<br>
+        <!-- <input id="colorPicker" type="color" ng-model="reservation.color">Pick a Color!<br> -->
+        <!-- <button ng-click="blockDates()">Block These Dates</button><br> -->
+        <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
+    </div>
+
+    <input type="checkbox" id="termsCheckbox"required>I have read and agree to the <a href="#!/napSpace/terms">Terms of Service</a> for BYOB(lanket)
+    <button>Submit</button>
+</form>

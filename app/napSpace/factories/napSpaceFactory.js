@@ -65,6 +65,41 @@ angular
                         })
                 }
             },
+            "edit": {
+                value: function (napSpace, key) {
+                    console.log("Edited")
+                    return firebase.auth().currentUser.getIdToken(true)
+                        .then(idToken => {
+                    return $http({
+                        method: "PUT",
+                        url: `${firebaseURL}/spaces/${key}/.json?auth=${idToken}`,
+                        data: {
+                            "ownerId": firebase.auth().currentUser.uid,
+                            "ownerEmail": firebase.auth().currentUser.email,
+                            "title": napSpace.title,
+                            "price": napSpace.price,
+                            "description": napSpace.description,
+                            "address": napSpace.address,
+                            "payment": napSpace.payment,
+                            "rules": napSpace.rules,
+                            "picture": napSpace.picture
+                        }
+                    })
+                })
+            }
+        },
+            "delete": {
+                value: function (key) {
+                    console.log("Delete that shit")
+                    return firebase.auth().currentUser.getIdToken(true)
+                    .then(idToken => {
+                    return $http({
+                        method: "DELETE",
+                        url: `${firebaseURL}/spaces/${key}/.json?auth=${idToken}`
+                        })
+                    })
+                }
+            },
             // filters napSpaces for the search
             "find": {
                 value: function (searchString) {
@@ -143,27 +178,3 @@ angular
             }
         })
     })
-// "edit": { FIX THIS LATER!!!!
-//     value: function (napSpace, key) {
-//         napSpace.title = ""
-//         napSpace.price = ""
-//         napSpace.description = ""
-//         napSpace.address = ""
-//         napSpace.payment = ""
-//         napSpace.rules = ""
-//         napSpace.picture = ""
-//         return $http({
-//             method: "PUT",
-//             url: `${firebaseURL}/napSpace/${key}/.json?auth=${idToken}`,
-//             data: napSpace
-//         })
-//     }
-// },
-// "delete": { UPDATE THIS LATER
-//     value: function (key) {
-//         return $http({
-//             method: "DELETE",
-//             url: `${firebaseURL}/napSpace/${key}/.json?auth=${idToken}`
-//         })
-//     }
-// },

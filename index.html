@@ -10,6 +10,9 @@
 
     <body ng-app="BYOBlanket">
         <nav ng-controller="AuthCtrl">
+            <a href="#!/napSpace/list">Home</a>
+            <a href="#!/napSpace/add">List New Nap Space</a>
+            <a href="#!/napSpace/hub">Manage Your Nap Spaces</a>
             <button ng-click="logoutUser()">Logout</button>
         </nav>
         <h1>BYOB(lanket)</h1>
@@ -38,6 +41,7 @@
         <script src="./app/napSpace/controllers/listController.js"></script>
         <script src="./app/napSpace/controllers/addController.js"></script>
         <script src="./app/napSpace/controllers/detailController.js"></script>
+        <script src="./app/napSpace/controllers/ownerHubController.js"></script>
 
     </body>
 </html>

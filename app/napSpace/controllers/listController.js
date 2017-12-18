@@ -1,6 +1,7 @@
 angular
     .module("BYOBlanket")
-    .controller("listController", function (napSpaceFactory, $scope, $timeout) {
+    .controller("listController",
+    function (napSpaceFactory, $scope, $timeout) {
         $scope.spaces = []
         // lists all the napSpaces
         napSpaceFactory.list().then(spaces => {

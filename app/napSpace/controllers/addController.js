@@ -25,6 +25,7 @@ angular
                     "rules": $scope.newNapSpace.rules,
                     "picture": URL,
                 }
+
                 // runs .add method
                 napSpaceFactory.add(listing)
                 .then((newListing) => {
