@@ -16,7 +16,7 @@
     <input id="startTime" type="time" ng-model="reservation.start">Start Time<br>
     <input id="endDate" type="date" ng-model="reservation.end">End Date<br>
     <input id="endTime" type="time" ng-model="reservation.end">End Time<br>
-    <!-- <input id="colorPicker" type="color" ng-model="reservation.color">Pick a Color!<br> -->
+    <input type="checkbox" id="termsCheckbox"required>I have read and agree to the <a href="#!/napSpace/terms">Terms of Service</a> for BYOB(lanket)
     <button ng-click="makeReservation(); confirmEmail(napSpace.ownerEmail)">Make a Nap Reservation</button><br>
     <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
 </div>

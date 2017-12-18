@@ -137,20 +137,6 @@ angular
                                 method: "POST",
                                 url: `${firebaseURL}/reservations/.json?auth=${idToken}`,
                                 data: reservation
-                                // {
-                                //     "userResEmail": firebase.auth().currentUser.email,
-                                //     "napSpaceId": reservation.id,
-                                //     "napSpaceTitle": reservation.title,
-                                //     "napSpacePrice": reservation.price,
-                                //     "napSpaceAddress": reservation.address,
-                                //     "napSpacePayment": reservation.payment,
-                                //     // "reservationName": "",
-                                //     "reservationTime":
-                                //         {
-                                //         "startDateTime": {"date": date, "time": time},
-                                //         "endDateTime": {"date": date, "time": time}
-                                //         }
-                                // }
                             })
                         })
                 }

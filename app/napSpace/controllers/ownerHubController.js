@@ -38,7 +38,7 @@ angular
             $scope.reservation =
             {
                 napSpaceID: $scope.napSpace.id,
-                title: "Unavailable",
+                title: `${$scope.napSpace.title} Unavailable`,
                 start: $scope.reservation.start,
                 end: $scope.reservation.end,
                 napperEmail: firebase.auth().currentUser.email,

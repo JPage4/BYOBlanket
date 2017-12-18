@@ -40,8 +40,7 @@ angular
                 let napperEmail = firebase.auth().currentUser.email
                 let message = `User ${$scope.reservation.napperEmail} would like to reserve ${$scope.napSpace.title} from ${$scope.reservation.start} to ${$scope.reservation.end}. Please respond to accept or decline. Thank you! BYOB Team`
                 let subject = `Reservation Request for ${$scope.napSpace.title}`
-
-                $window.open("mailto:" + ownerEmail + "?subject=" + subject + "&body=" + message)
+                location.href= "mailto:" + ownerEmail + "?subject=" + subject + "&body=" + message
             }
                 napSpaceFactory.makeReservation($scope.reservation).then( ()=>   {
                     console.log("It's nap time yall!")
