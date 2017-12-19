@@ -70,6 +70,7 @@ angular
                     console.log("Edited")
                     return firebase.auth().currentUser.getIdToken(true)
                         .then(idToken => {
+                            
                     return $http({
                         method: "PUT",
                         url: `${firebaseURL}/spaces/${key}/.json?auth=${idToken}`,

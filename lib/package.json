@@ -12,11 +12,13 @@
     "angular": "^1.6.7",
     "angular-fullcalendar": "^1.0.1",
     "angular-route": "^1.6.7",
+    "bootstrap": "^4.0.0-beta.2",
     "firebase": "^4.7.0",
     "fullcalendar": "^3.7.0",
     "fullcalendar-scheduler": "^1.9.0",
-    "jquery": "^3.2.1",
-    "moment": "^2.19.4"
+    "jquery": "^1.9.1",
+    "moment": "^2.19.4",
+    "popper.js": "^1.12.9"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
