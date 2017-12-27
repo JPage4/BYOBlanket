@@ -1,16 +1,18 @@
-<a href="#!/napSpace/list">Back to Home</a>
-<br>
-<br>
-<h1>{{ napSpace.title }} {{ napSpace.price }}</h1>
-<h3>{{ napSpace.description }}</h3>
-<p>Accepted Payment: {{ napSpace.payment }}</p>
-<p>Nap Space Rules: {{ napSpace.rules }}</p>
-<img src="{{ napSpace.picture }}" width="500px">
+<section id="detailPage">
+    <a href="#!/napSpace/list">Back to Home</a>
+    <br>
+    <br>
+    <h1>{{ napSpace.title }} {{ napSpace.price }}</h1>
+    <h3>{{ napSpace.description }}</h3>
+    <p>Accepted Payment: {{ napSpace.payment }}</p>
+    <p>Nap Space Rules: {{ napSpace.rules }}</p>
+    <img src="{{ napSpace.picture }}" width="500px">
+</section>
 
 <div id="map"></div>
 <br>
 
-<div>
+<div id="detailPageReservation">
     <input id="title" type="title" ng-model="reservation.title" placeholder="Napper Name"><br>
     <input id="startDate" type="date" ng-model="reservation.start">Start Date<br>
     <input id="startTime" type="time" ng-model="reservation.start">Start Time<br>

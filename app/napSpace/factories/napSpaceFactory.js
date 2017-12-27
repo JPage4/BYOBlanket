@@ -70,7 +70,7 @@ angular
                     console.log("Edited")
                     return firebase.auth().currentUser.getIdToken(true)
                         .then(idToken => {
-                            
+
                     return $http({
                         method: "PUT",
                         url: `${firebaseURL}/spaces/${key}/.json?auth=${idToken}`,
@@ -105,7 +105,7 @@ angular
             "find": {
                 value: function (searchString) {
                     const result = this.cache.find(napSpace => {
-                        return napSpace.address.includes(searchString) || napSpace.title.includes(searchString) || napSpace.price.includes(searchString)
+                        return napSpace.address.includes(searchString) || napSpace.title.includes(searchString) || napSpace.price.includes(searchString) || napSpace.description.includes(searchString)
                     })
                     return result
                 }

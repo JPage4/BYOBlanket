@@ -1,12 +1,12 @@
+<section id="listNapSpaces">
 <h2>Nap Spaces in Your Area</h2>
 <div>
-    <input type="text" ng-model="query">
+    <input type="text" ng-model="query" placeholder="Search">
 </div>
-
+<br>
 <div ng-repeat="napSpace in spaces | filter: query">
     <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
 </div>
+</section>
 
 <div id="map"></div>
-<!-- add link to napSpace detail page on the marker -->
-

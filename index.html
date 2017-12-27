@@ -4,18 +4,19 @@
         <title>Bring Your Own Blanket</title>
         <link rel="stylesheet" href="./styles/styles.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
 
     </head>
 
     <body ng-app="BYOBlanket">
-        <nav ng-controller="AuthCtrl">
-            <a href="#!/napSpace/list">Home</a>
-            <a href="#!/napSpace/add">List New Nap Space</a>
-            <a href="#!/napSpace/hub">Manage Your Nap Spaces</a>
-            <button ng-click="logoutUser()">Logout</button>
+    <heading>
+        <nav  id="nav" ng-controller="AuthCtrl">
+            <button class="align-right" ng-click="logoutUser()">Logout</button>
+            <div  ng-include="'app/navbar/partials/navbar.html'"></div>
         </nav>
-        <h1>BYOB(lanket)</h1>
+        <h1 id="title">BYOB(lanket)</h1>
+    </heading>
         <div ng-view></div>
 
         <footer></footer>
@@ -26,6 +27,7 @@
         <script src="./lib/node_modules/firebase/firebase.js"></script>
         <script src="./lib/node_modules/angular/angular.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="./lib/node_modules/angular-fullcalendar/dist/angular-fullcalendar.min.js"></script>
         <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -36,6 +38,8 @@
 
         <script src="./app/auth/factories/AuthFactory.js"></script>
         <script src="./app/auth/controllers/AuthCtrl.js"></script>
+
+        <script src="./app/navbar/controllers/navController.js"></script>
 
         <script src="./app/napSpace/factories/napSpaceFactory.js"></script>
         <script src="./app/napSpace/controllers/listController.js"></script>

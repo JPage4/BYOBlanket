@@ -1,30 +1,32 @@
-<a href="#!/napSpace/list">Back to Home</a>
+<section id="addPage">
+    <a href="#!/napSpace/list">Back to Home</a>
 
-<h2>List a new Nap Space</h2>
-<form ng-submit="addNapSpace()">
-    <div>
-        Listing Title: <input type="text" ng-model="newNapSpace.title" required>
-    </div>
-    <div>
-        Price per hour: <input type="text" ng-model="newNapSpace.price" required>
-    </div>
-    <div>
-        Description: <input type="text" ng-model="newNapSpace.description" required>
-    </div>
-    <div>
-        Address: <input type="text" ng-model="newNapSpace.address" required>
-    </div>
-    <div>
-        Payment Types Accepted: <input type="text" ng-model="newNapSpace.payment" required>
-    </div>
-    <div>
-        Rules: <input type="text" ng-model="newNapSpace.rules" required>
-    </div>
-    <div>
-        Picture: <input id="uploadFile" type="file" ng-model="newNapSpace.picture" accept=".jpg, .jpeg, .png" required>
-    </div>
+    <h2>List a new Nap Space</h2>
+    <form ng-submit="addNapSpace()">
+        <div>
+            Listing Title: <input type="text" ng-model="newNapSpace.title" required>
+        </div>
+        <div>
+            Price per hour: <input type="text" ng-model="newNapSpace.price" required>
+        </div>
+        <div>
+            Description: <input type="text" ng-model="newNapSpace.description" required>
+        </div>
+        <div>
+            Address: <input type="text" ng-model="newNapSpace.address" required>
+        </div>
+        <div>
+            Payment Types Accepted: <input type="text" ng-model="newNapSpace.payment" required>
+        </div>
+        <div>
+            Rules: <input type="text" ng-model="newNapSpace.rules" required>
+        </div>
+        <div>
+            Picture: <input id="uploadFile" type="file" ng-model="newNapSpace.picture" accept=".jpg, .jpeg, .png" required>
+        </div>
 
-    <input type="checkbox" id="termsCheckbox"required>I have read and agree to the <a href="#!/napSpace/terms">Terms of Service</a> for BYOB(lanket)
-    <button>Submit</button>
-</form>
+        <input type="checkbox" id="termsCheckbox"required>I have read and agree to the <a href="#!/napSpace/terms">Terms of Service</a> for BYOB(lanket)
+        <button>Submit</button>
+    </form>
+</section>
 
