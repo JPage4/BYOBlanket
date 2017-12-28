@@ -13,8 +13,8 @@ body {
     color: #565656;
     width: 100%;
     padding: 0;
-    margin-left: 0;
-    margin-right: 0;
+    /* margin-left: 70px;
+    margin-right: 70px; */
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
@@ -109,6 +109,7 @@ h3 {
 
     font-weight: 300;
     margin: 0;
+    text-align: center;
 }
 h4,
 h5 {
@@ -366,9 +367,9 @@ Extra height css
 .margin-bottom-40 {
     margin-bottom: 40px;
 }
-.margin-top-60 {
+/* .margin-top-60 {
     margin-top: 60px;
-}
+} */
 .margin-80 {
     margin-top: 80px;
     margin-bottom: 80px;
@@ -549,13 +550,13 @@ textarea::-ms-input-placeholder
     background-color: transparent;
 }
 .navbar-brand{
-    margin-top:-5px;	
+    margin-top:-5px;
 }
 
 
 /*For Home Section*/
 .home{
-    background:url(../images/homebg.jpg) no-repeat center center;
+    background:url(../images/girl-sleeping.jpg) no-repeat center center;
     color:#000;
     background-size:cover;
     -webkit-background-size:cover;
@@ -581,7 +582,15 @@ textarea::-ms-input-placeholder
     margin-top: 90px;
 }
 
-.home-contact .input-group{display: block;}
+.input-group{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 275px;
+}
+.listing-search {
+    width: 250px;
+    height: 40px;
+}
 .home-content .input-group .form-control {
     position: relative;
     z-index: 2;
@@ -609,11 +618,16 @@ textarea::-ms-input-placeholder
     color:#000;
     font-size:15px;
 }
+input .form-control {
+    margin: 0 auto;
+    width: 700px;
+}
 .form-control {
     border: 1px solid #DEDEDE;
     height:45px;
     border-radius: 0px;
     margin-right: -3px;
+
 }
 .head_title {
     margin-bottom: 40px;
@@ -1241,9 +1255,9 @@ textarea::-ms-input-placeholder
     }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xkeyframes 
+xkeyframes
 
 -------------------------------- */
 @-webkit-keyframes cd-rotate {

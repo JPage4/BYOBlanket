@@ -1,7 +1,7 @@
 <section id="ownerPage">
 <a href="#!/napSpace/list">Back to Home</a>
 
-<h1>Manage Your Nap Spaces</h1>
+<h2>Manage Your Nap Spaces</h2>
 <div ng-repeat="napSpace in spaces">
     <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
     <button id="editButton" ng-click="editFields(napSpace, reservation)">Edit</button>
