@@ -1,47 +1,82 @@
-<section id="ownerPage">
-<a href="#!/napSpace/list">Back to Home</a>
+<section id="features" class="features sections">
+    <div class="container">
+        <div class="row">
+            <div class="main_features_content2">
+                <h2>Manage Your Nap Spaces</h2>
 
-<h2>Manage Your Nap Spaces</h2>
-<div ng-repeat="napSpace in spaces">
-    <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
-    <button id="editButton" ng-click="editFields(napSpace, reservation)">Edit</button>
-    <button id="deleteButton" ng-click="deleteNapSpace(napSpace)">Delete</button>
-</div>
-<br>
-<br>
-<br>
-<form id="editForm" ng-submit="editNapSpace()">
-    <div>
-        Listing Title: <input type="text" ng-model="napSpace.title" required>
-    </div>
-    <div>
-        Price per hour: <input type="text" ng-model="napSpace.price" required>
-    </div>
-    <div>
-        Description: <input type="text" ng-model="napSpace.description" required>
-    </div>
-    <div>
-        Address: <input type="text" ng-model="napSpace.address" required>
-    </div>
-    <div>
-        Payment Types Accepted: <input type="text" ng-model="napSpace.payment" required>
-    </div>
-    <div>
-        Rules: <input type="text" ng-model="napSpace.rules" required>
-    </div>
-    <div>
-        Picture: <input id="uploadFile" type="file" ng-model="napSpace.picture" accept=".jpg, .jpeg, .png" required>
-    </div>
-    <h2>Set Your Availability</h2>
+                <div class="col-sm-6 margin-top-60">
+                    <div class="single_features_right ">
+                        <div ng-repeat="napSpace in spaces">
+                            <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
+                            <button id="editButton" ng-click="editFields(napSpace, reservation)">Edit</button>
+                            <button id="deleteButton" ng-click="deleteNapSpace(napSpace)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="col-sm-6">
+                    <div class="single_features_left">
+                        <form id="editForm" ng-submit="editNapSpace()">
+                            <h2>Edit Details</h2>
+                            <div>
+                                <input class="editInput" type="text" ng-model="napSpace.title" placeholder="Edit Title" required>
+                            </div>
+                            <br>
+                            <div>
+                                <input class="editInput" type="text" ng-model="napSpace.price" placeholder="Edit Price" required>
+                            </div>
+                            <br>
+                            <div>
+                                <input class="editInput" type="text" ng-model="napSpace.description" placeholder="Edit Description" required>
+                            </div>
+                            <br>
+                            <div>
+                                <input class="editInput" type="text" ng-model="napSpace.address" placeholder="Edit Address" required>
+                            </div>
+                            <br>
+                            <div>
+                                <input class="editInput" type="text" ng-model="napSpace.payment" placeholder="Edit Accepted Payment" required>
+                            </div>
+                            <br>
+                            <div>
+                                <input class="editInput" type="text" ng-model="napSpace.rules" placeholder="Edit Rules" required>
+                            </div>
+                            <br>
+                            <div>
+                                Picture:
+                                <input  class="editInput" type="file" ng-model="napSpace.picture" accept=".jpg, .jpeg, .png" required>
+                            </div>
 
-    <div>
-        <input id="startDate" type="date" ng-model="reservation.start">Start Date<br>
-        <input id="startTime" type="time" ng-model="reservation.start">Start Time<br>
-        <input id="endDate" type="date" ng-model="reservation.end">End Date<br>
-        <input id="endTime" type="time" ng-model="reservation.end">End Time<br>
-        <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
-    </div>
+                            <!-- <div class="col-sm-6 margin-top-60">
+                                <div class="single_features_right "> -->
+                                    <h3>Set Your Availability</h3>
 
-    <button>Submit</button>
-</form>
-</section>
+                                    <div>
+                                        <input class="editInput" id="startDate" type="date" ng-model="reservation.start">Start Date
+                                        <br>
+                                        <br>
+                                        <input class="editInput" id="startTime" type="time" ng-model="reservation.start">Start Time
+                                        <br>
+                                        <br>
+                                        <input class="editInput" id="endDate" type="date" ng-model="reservation.end">End Date
+                                        <br>
+                                        <br>
+                                        <input class="editInput" id="endTime" type="time" ng-model="reservation.end">End Time
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <button>Submit</button>
+                                        <br>
+                                        <br>
+                                        <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <a href="#!/napSpace/list">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>

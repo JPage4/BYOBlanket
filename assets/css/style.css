@@ -11,6 +11,7 @@ html,
 body {
     font-size: 15px;
     color: #565656;
+    background-color: #eff8ff;
     width: 100%;
     padding: 0;
     /* margin-left: 70px;
@@ -511,6 +512,9 @@ textarea::-ms-input-placeholder
 }
 
 /*For Menu Style*/
+.navbar-header a{
+    margin: 40px;
+}
 .navbar-default {
     background-color: transparent;
     border-color: transparent;
@@ -582,6 +586,15 @@ textarea::-ms-input-placeholder
     margin-top: 90px;
 }
 
+.editInput {
+    width: 375px;
+    height: 40px;
+}
+.reserveInput {
+    width: 250px;
+    height: 40px;
+}
+
 .input-group{
     display: flex;
     justify-content: flex-end;
@@ -640,6 +653,10 @@ input .form-control {
 
 /* features  section */
 
+#pointCop {
+    display: block;
+    margin: 0 auto;
+}
 .single_features_left img{
     height:460px;
 }
@@ -1610,7 +1627,7 @@ xkeyframes
 
 /*For Footer Section*/
 .footer{
-
+    background-color: white;
     color:#000;
 }
 .footer-wrapper{
@@ -1621,7 +1638,7 @@ xkeyframes
     float:left;
 }
 .copyright{
-    text-align:right;
+    text-align:center;
 }
 .copyright p{
     font-size: 1.125rem;

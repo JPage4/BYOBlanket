@@ -1,28 +1,58 @@
-<section id="detailPage">
-    <a href="#!/napSpace/list">Back to Home</a>
-    <br>
-    <br>
-    <h1>{{ napSpace.title }} {{ napSpace.price }}</h1>
-    <h3>{{ napSpace.description }}</h3>
-    <p>Accepted Payment: {{ napSpace.payment }}</p>
-    <p>Nap Space Rules: {{ napSpace.rules }}</p>
-    <img src="{{ napSpace.picture }}" width="500px">
+<section id="features" class="features sections">
+    <div class="container">
+        <div class="row">
+            <div class="main_features_content2">
+                <a href="#!/napSpace/list">Back to Home</a>
+                <br>
+                <br>
+                <div class="col-sm-6 margin-top-60">
+                    <div class="single_features_right ">
+                        <h2>{{ napSpace.title }} {{ napSpace.price }}</h2>
+                        <h4>{{ napSpace.description }}</h4>
+                        <p>Accepted Payment: {{ napSpace.payment }}</p>
+                        <p>Price per hour: {{ napSpace.price }}</p>
+                        <p>Nap Space Rules: {{ napSpace.rules }}</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="single_features_left text-center">
+                        <img src="{{ napSpace.picture }}">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="single_features_left text-center">
+                        <div id="map">
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="col-sm-6 margin-top-60">
+                    <div class="single_features_right ">
+                        <input class="reserveInput" id="title" type="title" ng-model="reservation.title" placeholder="Napper Name">
+                        <br>
+                        <br>
+                        <input class="reserveInput" id="startDate" type="date" ng-model="reservation.start">Start Date
+                        <br>
+                        <br>
+                        <input class="reserveInput" id="startTime" type="time" ng-model="reservation.start">Start Time
+                        <br>
+                        <br>
+                        <input class="reserveInput" id="endDate" type="date" ng-model="reservation.end">End Date
+                        <br>
+                        <br>
+                        <input class="reserveInput" id="endTime" type="time" ng-model="reservation.end">End Time
+                        <br>
+                        <input type="checkbox" id="termsCheckbox" required>I have read and agree to the
+                        <a href="#!/napSpace/terms">Terms of Service</a> for BYOB(lanket)
+                        <button ng-click="makeReservation(); confirmEmail(napSpace.ownerEmail)">Make a Nap Reservation</button>
+                        <br>
+                        <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <a href="#!/napSpace/list">Back to Home</a>
 </section>
-
-<div id="map"></div>
-<br>
-
-<div id="detailPageReservation">
-    <input id="title" type="title" ng-model="reservation.title" placeholder="Napper Name"><br>
-    <input id="startDate" type="date" ng-model="reservation.start">Start Date<br>
-    <input id="startTime" type="time" ng-model="reservation.start">Start Time<br>
-    <input id="endDate" type="date" ng-model="reservation.end">End Date<br>
-    <input id="endTime" type="time" ng-model="reservation.end">End Time<br>
-    <input type="checkbox" id="termsCheckbox"required>I have read and agree to the <a href="#!/napSpace/terms">Terms of Service</a> for BYOB(lanket)
-    <button ng-click="makeReservation(); confirmEmail(napSpace.ownerEmail)">Make a Nap Reservation</button><br>
-    <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
-</div>
-
-<br>
-<br>
-<a href="#!/napSpace/list">Back to Home</a>

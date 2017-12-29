@@ -31,7 +31,8 @@ angular
                 .then((newListing) => {
                     console.log(newListing)
                 })
-                clearInputs()
+                // clearInputs()
+                $location.url("/napSpace/detail/:napSpaceID")
             })
         })
     })
