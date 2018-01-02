@@ -1,5 +1,5 @@
 <section id="features" class="features sections">
-    <h2>Nap Spaces in Your Area</h2>
+    <h2 >Nap Spaces in Your Area</h2>
     <div class="input-group">
         <input type="text" class="listing-search" ng-model="query" placeholder="Search">
     </div>
@@ -8,18 +8,20 @@
         <div class="row">
             <div class="main_features_content2">
                 <div class="col-sm-6">
-                    <div class="single_features_left text-center">
-                        <div ng-repeat="napSpace in spaces | filter: query">
+                    <div class="single_features_left text-left">
+                        <div class="napSpaceList" ng-repeat="napSpace in spaces | filter: query">
                             <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
+                            <br>
+                            <br>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 margin-top-60">
-                    <div class="single_features_right ">
-                        <div id="map"></div>
-                    </div>
+            <div class="col-sm-6 margin-top-60">
+                <div class="single_features_right ">
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </section>

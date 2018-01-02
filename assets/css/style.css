@@ -673,6 +673,14 @@ input .form-control {
 .single_features_right p{
     font-size:18px;
 }
+.napSpaceList a{
+    font-size:22px;
+    margin-left:60px;
+}
+.napSpaceHub a{
+    font-size:20px;
+}
+
 .single_features_right ul li{
     font-size:18px;
     margin-top:3%;

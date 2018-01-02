@@ -5,11 +5,14 @@
                 <h2>Manage Your Nap Spaces</h2>
 
                 <div class="col-sm-6 margin-top-60">
-                    <div class="single_features_right ">
-                        <div ng-repeat="napSpace in spaces">
+                    <div class="single_features_right">
+                        <div class="napSpaceHub" ng-repeat="napSpace in spaces">
                             <a href="#!/napSpace/detail/{{ napSpace.id }}">{{ napSpace.title }} {{ napSpace.price }}</a>
                             <button id="editButton" ng-click="editFields(napSpace, reservation)">Edit</button>
                             <button id="deleteButton" ng-click="deleteNapSpace(napSpace)">Delete</button>
+                            <br>
+                            <br>
+                            <br>
                         </div>
                     </div>
                 </div>

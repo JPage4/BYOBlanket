@@ -43,8 +43,11 @@
                         <br>
                         <input class="reserveInput" id="endTime" type="time" ng-model="reservation.end">End Time
                         <br>
+                        <br>
                         <input type="checkbox" id="termsCheckbox" required>I have read and agree to the
                         <a href="#!/napSpace/terms">Terms of Service</a> for BYOB(lanket)
+                        <br>
+                        <br>
                         <button ng-click="makeReservation(); confirmEmail(napSpace.ownerEmail)">Make a Nap Reservation</button>
                         <br>
                         <div id="calendar" fc fc-options="optionsObj" ng-model="events"></div>
