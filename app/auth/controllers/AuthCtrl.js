@@ -8,8 +8,8 @@ angular
             $scope.login = {}
             $scope.register = {}
             $location.url("/napSpace/list")
-            clearInput()
         })
+        clearInput()
     }
 
     $scope.registerUser = function(registerNewUser) {

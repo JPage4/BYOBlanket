@@ -1,6 +1,6 @@
 angular
 .module("BYOBlanket")
-.controller("addController", function ($scope, napSpaceFactory) {
+.controller("addController", function ($scope, $location, napSpaceFactory) {
     $scope.newNapSpace = {}
     // adds napSpace into firebase
     $scope.addNapSpace = function () {
@@ -32,20 +32,13 @@ angular
                     console.log(newListing)
                 })
                 // clearInputs()
-                $location.url("/napSpace/detail/:napSpaceID")
+                $location.url("/napSpace/list")
+                $timeout(function () {
+                }, 500)
+                $route.reload()
             })
         })
     })
-}
-// clears input fields once napSpace is submitted
-clearInputs = function() {
-    $scope.newNapSpace.title = "",
-    $scope.newNapSpace.price = "",
-    $scope.newNapSpace.description = "",
-    $scope.newNapSpace.address = "",
-    $scope.newNapSpace.payment = "",
-    $scope.newNapSpace.rules = ""
-    document.getElementById("uploadFile").value = null
 }
 // function for adding pics to storage bucket
 let file = ""
@@ -57,4 +50,6 @@ submitButton.addEventListener("change", function(event) {
     let storageRef = firebase.storage().ref("photos/" + file.name)
     // upload file
     })
+
+
 })
