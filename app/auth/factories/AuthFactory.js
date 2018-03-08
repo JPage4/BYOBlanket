@@ -6,11 +6,17 @@ angular.module("BYOBlanket")
         return localStorage.getItem("token") !== null;
       }
 
+      function saveThatToken(tokenResult) {
+        return localStorage.setItem("token", tokenResult.data);
+      }
+
       function getSavedToken() {
         return localStorage.getItem("token");
       }
 
+      function removeToken() {
+        return localStorage.removeItem("token");
+      }
+
       return {}
-
-
 })
