@@ -1,14 +1,13 @@
 angular
 .module("BYOBlanket")
-.controller("AuthCtrl", function($scope, $location, AuthFactory) {
+.controller("AuthCtrl", function($scope, $location, AuthFactory, $http) {
     $scope.auth = {}
 
     $scope.logMeIn = function (credentials) {
-        AuthFactory.authenticate(credentials).then(function (didLogin) {
-            $scope.login = {}
-            $scope.register = {}
-            $location.url("/napSpace/list")
-        })
+        $http({
+            method: "POST",
+            url: `http://localhost:5000/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
+        }).then(result => console.log(result))
         clearInput()
     }
 
