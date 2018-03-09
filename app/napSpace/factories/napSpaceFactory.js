@@ -34,75 +34,82 @@ angular
             "single": {
                 value: function (key) {
                     console.log("The only begotten NapSpace")
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-                            return $http({
-                                method: "GET",
-                                url: `${BYOBlanketAPI}/NapSpace/${key}/.json?auth=${idToken}`
-                            }).then(response => {
-                                return response.data
-                            })
-                        })
+                    const token = localStorage.getItem("token")
+                    console.log(token, "token")
+                    return $http({
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        },
+                        url: `${BYOBlanketAPI}/NapSpace/${key}`
+                    }).then(response => {
+                        return response.data
+                    })
                 }
             },
             // creates new napSpace and stores in firebase
             "add": {
                 value: function (napSpace) {
                     console.log("Dis bitch was added!")
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-                            return $http({
-                                method: "POST",
-                                url: `${BYOBlanketAPI}/NapSpace/.json?auth=${idToken}`,
-                                data: {
-                                    "ownerId": firebase.auth().currentUser.uid,
-                                    "ownerEmail": firebase.auth().currentUser.email,
-                                    "title": napSpace.title,
-                                    "price": napSpace.price,
-                                    "description": napSpace.description,
-                                    "address": napSpace.address,
-                                    "payment": napSpace.payment,
-                                    "rules": napSpace.rules,
-                                    "picture": napSpace.picture
-                                }
-                            })
-                        })
+                    const token = localStorage.getItem("token")
+                    console.log(token, "token")
+                    return $http({
+                        method: "POST",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        },
+                        url: `${BYOBlanketAPI}/NapSpace`,
+                        data: {
+                            // "ownerId": firebase.auth().currentUser.uid,
+                            // "ownerEmail": firebase.auth().currentUser.email,
+                            "title": napSpace.title,
+                            "price": napSpace.price,
+                            "description": napSpace.description,
+                            "address": napSpace.address,
+                            "payment": napSpace.payment,
+                            "rules": napSpace.rules
+                            // "picture": napSpace.picture
+                        }
+                    })
                 }
             },
             "edit": {
-                value: function (napSpace, key) {
+                value: function (NapSpace, key) {
                     console.log("Edited hell yeah")
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-
-                            return $http({
-                                method: "PUT",
-                                url: `${BYOBlanketAPI}/NapSpace/${key}/.json?auth=${idToken}`,
-                                data: {
-                                    "ownerId": firebase.auth().currentUser.uid,
-                                    "ownerEmail": firebase.auth().currentUser.email,
-                                    "title": napSpace.title,
-                                    "price": napSpace.price,
-                                    "description": napSpace.description,
-                                    "address": napSpace.address,
-                                    "payment": napSpace.payment,
-                                    "rules": napSpace.rules,
-                                    "picture": napSpace.picture
-                                }
-                            })
-                        })
+                    const token = localStorage.getItem("token")
+                    console.log(token, "token")
+                    return $http({
+                        method: "PUT",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        },
+                        url: `${BYOBlanketAPI}/NapSpace/${key}`,
+                        data: {
+                            // "ownerId": firebase.auth().currentUser.uid,
+                            // "ownerEmail": firebase.auth().currentUser.email,
+                            "title": NapSpace.title,
+                            "price": NapSpace.price,
+                            "description": NapSpace.description,
+                            "address": NapSpace.address,
+                            "payment": NapSpace.payment,
+                            "rules": NapSpace.rules
+                            // "picture": napSpace.picture
+                        }
+                    })
                 }
             },
             "delete": {
                 value: function (key) {
                     console.log("Delete that shit")
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-                            return $http({
-                                method: "DELETE",
-                                url: `${BYOBlanketAPI}/NapSpace/${key}/.json?auth=${idToken}`
-                            })
-                        })
+                    const token = localStorage.getItem("token")
+                    console.log(token, "token")
+                    return $http({
+                        method: "DELETE",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        },
+                        url: `${BYOBlanketAPI}/NapSpace/${key}`
+                    })
                 }
             },
             // filters napSpaces for the search
@@ -137,36 +144,37 @@ angular
             "makeReservation": {
                 value: function (reservation) {
                     console.log("Rezzie has been made")
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-                            return $http({
-                                method: "POST",
-                                url: `${BYOBlanketAPI}/Reservation/.json?auth=${idToken}`,
-                                data: reservation
-                            })
-                        })
+                    const token = localStorage.getItem("token")
+                    console.log(token, "token")
+                    return $http({
+                        method: "POST",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        },
+                        url: `${BYOBlanketAPI}/Reservation/.json?auth=${idToken}`,
+                        data: reservation
+                    })
                 }
             },
             // gets all the reservations under specific napSpaceID
             "getReservation": {
                 value: function (key) {
                     console.log("GET your nap on")
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-                            return $http({
-                                method: "GET",
-                                url: `${BYOBlanketAPI}/Reservation/.json?orderBy="napSpaceID"&equalTo="${key}"&auth=${idToken}`
-                            }).then(response => {
-                                const data = response.data
-                                console.log(data)
-                                let reservations = Object.keys(data).map(key => {
-                                    data[key].id = key
-                                    return data[key]
-                                })
-                                console.log("getReservation", reservations)
-                                return reservations
-                            })
+                    const token = localStorage.getItem("token")
+                    console.log(token, "token")
+                    return $http({
+                        method: "GET",
+                        url: `${BYOBlanketAPI}/Reservation/orderBy="NapSpaceId"&equalTo="${key}"`
+                    }).then(response => {
+                        const data = response.data
+                        console.log(data)
+                        let reservations = Object.keys(data).map(key => {
+                            data[key].id = key
+                            return data[key]
                         })
+                        console.log("getReservation", reservations)
+                        return reservations
+                    })
                 }
             }
         })
