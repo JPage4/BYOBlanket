@@ -6,8 +6,12 @@ angular
     $scope.logMeIn = function (credentials) {
         $http({
             method: "POST",
-            url: `http://localhost:5000/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
-        }).then(result => console.log(result))
+            // WHY DOES THE LOCAL HOST KEEP CHANGING???
+            url: `http://localhost:57260/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
+        }).then(result => {
+            console.log(result)
+            localStorage.setItem("token", result.data)
+        })
         clearInput()
     }
 
@@ -19,7 +23,7 @@ angular
     }
 
     $scope.logoutUser = function(){
-        AuthFactory.logout()
+        AuthFactory.removeToken()
         $location.url("/auth")
         // clearInput()
     }
