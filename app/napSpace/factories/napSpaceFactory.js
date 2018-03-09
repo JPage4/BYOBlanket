@@ -1,7 +1,7 @@
 angular
     .module("BYOBlanket")
     .factory("napSpaceFactory", function ($http) {
-        let firebaseURL = "https://byoblanket-b8f8a.firebaseio.com"
+        let BYOBlanketAPI = "http://localhost:57260/api"
 
         return Object.create(null, {
             "cache": {
@@ -11,30 +11,34 @@ angular
             // lists all napSpaces
             "list": {
                 value: function () {
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-                            return $http({
-                                method: "GET",
-                                url: `${firebaseURL}/spaces/.json?auth=${idToken}`
-                            }).then(response => {
-                                const data = response.data
-                                // Make an array of objects so we can use filters
-                                return Object.keys(data).map(key => {
-                                    data[key].id = key
-                                    return data[key]
-                                })
-                            })
+                    console.log("Get. ALL. the. THINGS!")
+                    const token = localStorage.getItem("token")
+                    console.log(token, "token")
+                    return $http({
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        },
+                        url: `${BYOBlanketAPI}/NapSpace`
+                    }).then(response => {
+                        const data = response.data
+                        // Make an array of objects so we can use filters
+                        return Object.keys(data).map(key => {
+                            data[key].id = key
+                            return data[key]
                         })
+                    })
                 }
             },
             // lists specific napSpace by id to display details page
             "single": {
                 value: function (key) {
+                    console.log("The only begotten NapSpace")
                     return firebase.auth().currentUser.getIdToken(true)
                         .then(idToken => {
                             return $http({
                                 method: "GET",
-                                url: `${firebaseURL}/spaces/${key}/.json?auth=${idToken}`
+                                url: `${BYOBlanketAPI}/NapSpace/${key}/.json?auth=${idToken}`
                             }).then(response => {
                                 return response.data
                             })
@@ -49,7 +53,7 @@ angular
                         .then(idToken => {
                             return $http({
                                 method: "POST",
-                                url: `${firebaseURL}/spaces/.json?auth=${idToken}`,
+                                url: `${BYOBlanketAPI}/NapSpace/.json?auth=${idToken}`,
                                 data: {
                                     "ownerId": firebase.auth().currentUser.uid,
                                     "ownerEmail": firebase.auth().currentUser.email,
@@ -67,38 +71,38 @@ angular
             },
             "edit": {
                 value: function (napSpace, key) {
-                    console.log("Edited")
+                    console.log("Edited hell yeah")
                     return firebase.auth().currentUser.getIdToken(true)
                         .then(idToken => {
 
-                    return $http({
-                        method: "PUT",
-                        url: `${firebaseURL}/spaces/${key}/.json?auth=${idToken}`,
-                        data: {
-                            "ownerId": firebase.auth().currentUser.uid,
-                            "ownerEmail": firebase.auth().currentUser.email,
-                            "title": napSpace.title,
-                            "price": napSpace.price,
-                            "description": napSpace.description,
-                            "address": napSpace.address,
-                            "payment": napSpace.payment,
-                            "rules": napSpace.rules,
-                            "picture": napSpace.picture
-                        }
-                    })
-                })
-            }
-        },
+                            return $http({
+                                method: "PUT",
+                                url: `${BYOBlanketAPI}/NapSpace/${key}/.json?auth=${idToken}`,
+                                data: {
+                                    "ownerId": firebase.auth().currentUser.uid,
+                                    "ownerEmail": firebase.auth().currentUser.email,
+                                    "title": napSpace.title,
+                                    "price": napSpace.price,
+                                    "description": napSpace.description,
+                                    "address": napSpace.address,
+                                    "payment": napSpace.payment,
+                                    "rules": napSpace.rules,
+                                    "picture": napSpace.picture
+                                }
+                            })
+                        })
+                }
+            },
             "delete": {
                 value: function (key) {
                     console.log("Delete that shit")
                     return firebase.auth().currentUser.getIdToken(true)
-                    .then(idToken => {
-                    return $http({
-                        method: "DELETE",
-                        url: `${firebaseURL}/spaces/${key}/.json?auth=${idToken}`
+                        .then(idToken => {
+                            return $http({
+                                method: "DELETE",
+                                url: `${BYOBlanketAPI}/NapSpace/${key}/.json?auth=${idToken}`
+                            })
                         })
-                    })
                 }
             },
             // filters napSpaces for the search
@@ -132,11 +136,12 @@ angular
             // stores reservation object in firebase
             "makeReservation": {
                 value: function (reservation) {
+                    console.log("Rezzie has been made")
                     return firebase.auth().currentUser.getIdToken(true)
                         .then(idToken => {
                             return $http({
                                 method: "POST",
-                                url: `${firebaseURL}/reservations/.json?auth=${idToken}`,
+                                url: `${BYOBlanketAPI}/Reservation/.json?auth=${idToken}`,
                                 data: reservation
                             })
                         })
@@ -145,11 +150,12 @@ angular
             // gets all the reservations under specific napSpaceID
             "getReservation": {
                 value: function (key) {
+                    console.log("GET your nap on")
                     return firebase.auth().currentUser.getIdToken(true)
                         .then(idToken => {
                             return $http({
                                 method: "GET",
-                                url: `${firebaseURL}/reservations.json?orderBy="napSpaceID"&equalTo="${key}"&auth=${idToken}`
+                                url: `${BYOBlanketAPI}/Reservation/.json?orderBy="napSpaceID"&equalTo="${key}"&auth=${idToken}`
                             }).then(response => {
                                 const data = response.data
                                 console.log(data)
@@ -157,10 +163,10 @@ angular
                                     data[key].id = key
                                     return data[key]
                                 })
-                                console.log("getReservation",reservations)
+                                console.log("getReservation", reservations)
                                 return reservations
                             })
-                    })
+                        })
                 }
             }
         })

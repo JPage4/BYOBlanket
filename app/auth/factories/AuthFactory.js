@@ -18,5 +18,13 @@ angular.module("BYOBlanket")
         return localStorage.removeItem("token");
       }
 
-      return {}
+      const isAuthenticated = () => {
+        if (localStorage.getItem("token") === null)
+        {
+            return false
+        }
+        return true
+    }
+
+      return {isUserLoggedIn, saveThatToken, getSavedToken, removeToken, isAuthenticated}
 })

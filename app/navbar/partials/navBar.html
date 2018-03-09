@@ -1,7 +1,11 @@
-<div class="navbar-header">
+<div class="navbar-header" ng-controller="AuthCtrl">
     <section ng-controller="navController">
         <a href="#!/napSpace/list">Home</a>
         <a href="#!/napSpace/add">List New Nap Space</a>
         <a href="#!/napSpace/hub">Manage Your Nap Spaces</a>
+        <span ng-if="isAuthenticated()">
+            <a href="#" ng-click="logoutUser()">Logout </a>
+        </span>
+        <span ng-if="!isAuthenticated()"></span>
     </section>
 </div>

@@ -6,7 +6,19 @@ angular
     $scope.logMeIn = function (credentials) {
         $http({
             method: "POST",
-            // WHY DOES THE LOCAL HOST KEEP CHANGING???
+            url: `http://localhost:57260/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
+        }).then(result => {
+            console.log(result)
+            localStorage.setItem("token", result.data)
+        }).then(()=> {
+            window.location.href = "/#!/napSpace/list"
+        })
+        clearInput()
+    }
+
+    $scope.registerUser = function(registerNewUser) {
+        $http({
+            method: "POST",
             url: `http://localhost:57260/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
         }).then(result => {
             console.log(result)
@@ -15,17 +27,18 @@ angular
         clearInput()
     }
 
-    $scope.registerUser = function(registerNewUser) {
-        AuthFactory.registerWithEmail(registerNewUser).then(function (didRegister) {
-            $scope.logMeIn(registerNewUser)
-        })
-        clearInput()
-    }
-
     $scope.logoutUser = function(){
         AuthFactory.removeToken()
         $location.url("/auth")
         // clearInput()
+    }
+
+    $scope.isAuthenticated = () => {
+        if (localStorage.getItem("token") === "")
+        {
+            return false
+        }
+        return true
     }
 
     clearInput = function() {

@@ -5,6 +5,7 @@ angular
         $scope.spaces = []
         // lists all the napSpaces
         napSpaceFactory.list().then(spaces => {
+            console.log(spaces)
             $timeout()
             $scope.spaces = spaces
             // creates new map

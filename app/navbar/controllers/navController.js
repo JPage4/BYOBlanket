@@ -9,7 +9,7 @@ angular.module("BYOBlanket").controller("navController",
     /*
     Unauthenticate the client.
     */
-    $scope.logoutUser = () => AuthFactory.logout();
+    $scope.logoutUser = () => AuthFactory.removeToken();
 
     }
 )
